@@ -1,10 +1,10 @@
 const express = require('express')
-const redis = require('redis')
+const Redis = require("ioredis");
 
 const app = express()
-const client = redis.createClient({
-    host: 'redis-server',
-    port: 6379
+const client = new Redis({
+    host:'redis-server',
+    port:6379
 })
 
 //Set initial visits
