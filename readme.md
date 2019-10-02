@@ -6,6 +6,12 @@ http://progressivecoder.com/docker-compose-nodejs-application-with-redis-integra
 ```
 docker-compose up --build
 ```
+
+# To start Docker Compose
+```
+docker-compose up
+```
+
 # To start/stop up Docker Compose in the background
 
 ```
