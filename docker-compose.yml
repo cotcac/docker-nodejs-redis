@@ -1,8 +1,16 @@
 version: '3'
 services:
-  redis-server: 
-    image: 'redis'
   node-app:
     build: .
+    image: app2/nodejs:v3
+    env_file:
+      - /.env
     ports:
-      - "4001:8081"
+      - "${PORT}"
+  nginx:
+    build: ./nginx
+    image: app2/nginx:v3
+    ports:
+      - "${EXPORT}:3008"
+    depends_on:
+      - node-app

@@ -1,0 +1,28 @@
+version: '3'
+name: docker-nodejs-redis-node-app
+services:
+  node-app:
+    image: 'app2/nodejs:v2'
+    env_file:
+      - /.env
+    ports:
+      - "${PORT}"
+  postgres:
+    container_name: postgres
+    image: postgres
+    environment:
+      - POSTGRES_DB=postgres
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+  nginx:
+    image: 'app2/nginx:v2'
+    ports:
+      - "3004:3008"
+    depends_on:
+      - node-app
+volumes:
+  pgdata: {}

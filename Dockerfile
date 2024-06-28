@@ -1,5 +1,5 @@
 #Specify a base image
-FROM node:alpine
+FROM node:18.18-alpine
 
 #Specify a working directory
 WORKDIR /usr/app
